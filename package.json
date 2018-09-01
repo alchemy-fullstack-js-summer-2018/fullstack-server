@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint lib test",
+    "lint": "eslint .",
     "pretest": "npm run lint",
-    "test:mocha": "mocha  --recursive",
-    "test": "npm run test:mocha",
-    "test:unit": "mocha test/unit",
-    "test:e2e": "mocha test/e2e",
-    "test:watch": "nodemon --exec 'npm run test:mocha'",
-    "test:e2e:watch": "nodemon --exec 'npm run test:e2e'",
-    "test:unit:watch": "nodemon --exec 'npm run test:unit'",
+    "test": "npm run test:run",
+    "test:run": "mocha --recursive",
+    "test:unit": "npm run test:run -- ./test/unit",
+    "test:e2e": "npm run test:run -- ./test/e2e",
+    "test:watch": "nodemon --exec 'npm run -s test:run'",
+    "test:unit:watch": "nodemon --exec 'npm run -s test:unit'",
+    "test:e2e:watch": "nodemon --exec 'npm run -s test:e2e'",
     "start": "node server.js",
     "start:watch": "nodemon server.js"
   },
@@ -37,7 +37,6 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
-    "mongo": "^0.1.0",
     "mongoose": "^5.2.12",
     "morgan": "^1.9.0"
   }
