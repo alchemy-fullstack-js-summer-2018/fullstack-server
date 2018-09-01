@@ -2,7 +2,6 @@
   "name": "fullstack-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "lint": "eslint lib test",
     "pretest": "npm run lint",
