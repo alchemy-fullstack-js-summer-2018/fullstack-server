@@ -1,15 +1,15 @@
 {
   "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+      "ecmaVersion": 8,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "experimentalObjectRestSpread": true
+      }
   },
   "env": {
-    "es6": true,
-    "node": true,
-    "mocha": true
+      "es6": true,
+      "node": true,
+      "mocha": true
   },
   "extends": ["eslint:recommended"],
   "rules": {
@@ -23,19 +23,19 @@
       "comma-spacing": "error",
       "space-before-function-paren": ["error", "never"],
       "keyword-spacing": [
-        "error", 
-        { 
-          "before": true, 
-          "after": true,
-          "overrides": {
-              "do": { "after": false },
-              "for": { "after": false },
-              "if": { "after": false },
-              "switch": { "after": false },
-              "while": { "after": false },
-              "catch": { "after": false }
-          } 
-        }
+          "error", 
+          { 
+              "before": true, 
+              "after": true,
+              "overrides": {
+                  "do": { "after": false },
+                  "for": { "after": false },
+                  "if": { "after": false },
+                  "switch": { "after": false },
+                  "while": { "after": false },
+                  "catch": { "after": false }
+              }
+          }
       ],
       "array-bracket-spacing": "error"
   }
