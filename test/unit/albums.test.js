@@ -1,20 +1,29 @@
 const chai = require('chai');
 const { assert } = chai;
-const Albums = require('../../lib/models/albums');
+const { getErrors } = require('./helpers');
+const Album = require('../../lib/models/album');
 
-describe.only('Albums model', () => {
+describe.only('album model', () => {
 
     it('validates good model', () => {
         const data = {
             title: 'Baby Evie',
             description: 'First Year'
         };
-        const albums = new Albums(data);
+        const album = new Album(data);
 
-        const json = albums.toJSON();
+        const json = album.toJSON();
         delete json._id;
         assert.deepEqual(json, data);
-        assert.isUndefined(albums.validateSync());
+        assert.isUndefined(album.validateSync());
+    });
+
+    it('validates required fields', () => {
+        const album = new Album({});
+        const errors = getErrors(album.validateSync(), 2);
+
+        assert.equal(errors.title.kind, 'required');
+        assert.equal(errors.description.kind, 'required');
     });
 
 });
