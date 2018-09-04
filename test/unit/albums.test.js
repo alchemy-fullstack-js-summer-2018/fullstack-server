@@ -2,11 +2,12 @@ const chai = require('chai');
 const { assert } = chai;
 const Albums = require('../../lib/models/albums');
 
-describe('Albums model', () => {
+describe.only('Albums model', () => {
 
     it('validates good model', () => {
         const data = {
-            // example full, good data
+            title: 'Baby Evie',
+            description: 'First Year'
         };
         const albums = new Albums(data);
 
