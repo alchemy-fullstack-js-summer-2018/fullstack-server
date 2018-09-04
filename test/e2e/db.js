@@ -1,9 +1,9 @@
 require('dotenv').config({ path: './test/e2e/.env' });
 const connect = require('../../lib/util/connect');
 const mongoose = require('mongoose');
-const request = require('./request');
+// const request = require('./request');
 
-before(() => connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/*****DB NAME****'));    
+before(() => connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/images'));    
 after(() => mongoose.connection.close());
 
 module.exports = {
@@ -13,4 +13,5 @@ module.exports = {
             .catch(err => {
                 if(err.codeName !== 'NamespaceNotFound') throw err;
             });
+    }
 };
