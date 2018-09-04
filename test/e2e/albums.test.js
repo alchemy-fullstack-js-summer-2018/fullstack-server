@@ -79,7 +79,7 @@ describe.only('Albums API', () => {
             });
     });
 
-    it.only('updates an album', () => {
+    it('updates an album', () => {
         album1.description = 'Baby\'s First Year!!!';
         return request
             .put(`/api/albums/${album1._id}`)
@@ -102,6 +102,21 @@ describe.only('Albums API', () => {
             })
             .then(res => {
                 assert.equal(res.status, 404);
+            });
+    });
+
+    it.skip('returns 404 on get of non-existent id', () => {
+        let album3 = {
+            _id: 'abc123',
+            title: 'Disney World 2013',
+            description: 'DCP Fall 2013'
+        };
+        
+        return request
+            .get(`/api/albums/${album3._id}`)
+            .then(res => {
+                assert.equal(res.status, 404);
+                assert.match(res.body.error, new RegExp(album3._id));
             });
     });
 });
