@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint lib test",
-    "pretest": "npm run lint",
-    "test:mocha": "mocha  --recursive",
-    "test": "npm run test:mocha",
+    "test": "eslint .",
     "test:unit": "mocha test/unit",
     "test:e2e": "mocha test/e2e",
     "test:watch": "nodemon --exec 'npm run test:mocha'",
