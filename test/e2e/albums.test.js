@@ -9,7 +9,7 @@ const checkOk = res => {
 
 describe.only('Albums API', () => {
 
-    before(() => dropCollection('albums'));
+    beforeEach(() => dropCollection('albums'));
 
     let album1 = {
         title: 'Babie Evie',
@@ -21,7 +21,7 @@ describe.only('Albums API', () => {
     //     description: 'Birthday in the PNW'
     // };
 
-    it('saves an album', () => {
+    beforeEach(() => {
         return request.post('/api/albums')
             .send(album1)
             .then(checkOk)
@@ -35,5 +35,17 @@ describe.only('Albums API', () => {
                 });
                 album1 = body;
             });
+    });
+
+    it('saves an album', () => {
+        assert.isOk(album1._id);
+    });
+
+    it('gets an album by id', () => {
+        
+    });
+
+    it('gets a list of albums', () => {
+
     });
 });
