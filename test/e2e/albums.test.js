@@ -79,7 +79,22 @@ describe.only('Albums API', () => {
             });
     });
 
-    it.only('deletes an album', () => {
+    it.only('updates an album', () => {
+        album1.description = 'Baby\'s First Year!!!';
+        return request
+            .put(`/api/albums/${album1._id}`)
+            .send(album1)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, album1);
+                return request.get(`/api/albums/${album1._id}`);
+            })
+            .then(({ body }) => {
+                assert.equal(body.description, album1.description);
+            });
+    });
+
+    it('deletes an album', () => {
         return request
             .delete(`/api/albums/${album1._id}`)
             .then(() => {
