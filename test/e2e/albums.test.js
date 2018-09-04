@@ -70,12 +70,23 @@ describe.only('Albums API', () => {
             });
     });
 
-    it.only('gets all albums', () => {
+    it('gets all albums', () => {
         return request
             .get('/api/albums')
             .then(checkOk)
             .then(({ body }) => {
                 assert.deepEqual(body, [album1, album2]);
+            });
+    });
+
+    it.only('deletes an album', () => {
+        return request
+            .delete(`/api/albums/${album1._id}`)
+            .then(() => {
+                return request.get(`/api/albums/${album1._id}`);
+            })
+            .then(res => {
+                assert.equal(res.status, 404);
             });
     });
 });
