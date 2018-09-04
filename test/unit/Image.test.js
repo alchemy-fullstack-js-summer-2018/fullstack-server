@@ -18,4 +18,13 @@ describe('Image model', () => {
         assert.deepEqual(image.toJSON(), data);
         assert.isUndefined(image.validateSync());
     });
+
+    it('Required fields', () => {
+        const image = new Image({});
+        const errors = getErrors(image.validateSync(), 3);
+
+        assert.equal(errors.title.kind, 'required');
+        assert.equal(errors.description.kind, 'required');
+        assert.equal(errors.url.kind, 'required');
+    });
 });
