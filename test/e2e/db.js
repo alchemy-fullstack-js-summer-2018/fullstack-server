@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const request = require('./request');
 
 before(() => connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/image-gallery'));
-after(() => mongoose.connnection.close());
+after(() => mongoose.connection.close());
 
 module.exports = {
 
