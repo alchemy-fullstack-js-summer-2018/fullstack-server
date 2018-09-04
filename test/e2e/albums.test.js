@@ -1,6 +1,7 @@
 const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection  } = require('./_db');
+const { Types } = require('mongoose');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
@@ -104,9 +105,9 @@ describe.only('Albums API', () => {
             });
     });
 
-    it.skip('returns 404 on get of non-existent id', () => {
+    it('returns 404 on get of non-existent id', () => {
         let album3 = {
-            _id: 'abc123',
+            _id: Types.ObjectId(),
             title: 'Disney World 2013',
             description: 'DCP Fall 2013'
         };
