@@ -1,19 +1,19 @@
 const chai = require('chai');
 const { assert } = chai;
-const Users = require('../../lib/models/users');
+const User = require('../../lib/models/user');
 
-describe('Users model', () => {
+describe('User model', () => {
 
     it('validates good model', () => {
         const data = {
             // example full, good data
         };
-        const users = new Users(data);
+        const user = new User(data);
 
-        const json = users.toJSON();
+        const json = user.toJSON();
         delete json._id;
         assert.deepEqual(json, data);
-        assert.isUndefined(users.validateSync());
+        assert.isUndefined(user.validateSync());
     });
 
 });

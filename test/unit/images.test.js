@@ -1,19 +1,19 @@
 const chai = require('chai');
 const { assert } = chai;
-const Images = require('../../lib/models/images');
+const Image = require('../../lib/models/image');
 
-describe('Images model', () => {
+describe('Image model', () => {
 
     it('validates good model', () => {
         const data = {
             // example full, good data
         };
-        const images = new Images(data);
+        const image = new Image(data);
 
-        const json = images.toJSON();
+        const json = image.toJSON();
         delete json._id;
         assert.deepEqual(json, data);
-        assert.isUndefined(images.validateSync());
+        assert.isUndefined(image.validateSync());
     });
 
 });

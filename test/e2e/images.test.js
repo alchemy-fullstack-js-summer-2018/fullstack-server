@@ -7,7 +7,7 @@
 //     return res;
 // };
 
-describe('Things API', () => {
+describe('Images API', () => {
 
     it('working...', () => {
 
