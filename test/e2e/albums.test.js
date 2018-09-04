@@ -41,8 +41,13 @@ describe.only('Albums API', () => {
         assert.isOk(album1._id);
     });
 
-    it('gets an album by id', () => {
-        
+    it.only('gets an album by id', () => {
+        return request 
+            .get(`/api/albums/${album1._id}`)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, album1);
+            });
     });
 
     it('gets a list of albums', () => {

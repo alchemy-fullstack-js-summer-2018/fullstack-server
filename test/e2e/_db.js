@@ -1,7 +1,8 @@
+require('dotenv').config({ path: './test/e2e/.env' });
 const connect = require('../../lib/utils/connect');
-connect('mongodb://localhost:27017/gallery');
 const mongoose = require('mongoose');
 
+connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/gallery');
 after(() => {
     return mongoose.connection.close();
 });
