@@ -3,7 +3,7 @@ const { assert } = chai;
 const { getErrors } = require('./helpers');
 const Album = require('../../lib/models/album');
 
-describe.only('album model', () => {
+describe('album model', () => {
 
     it('validates good model', () => {
         const data = {
