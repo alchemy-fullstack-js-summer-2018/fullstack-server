@@ -46,7 +46,11 @@ describe.only('Albums API', () => {
             .get(`/api/albums/${album1._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, album1);
+                console.log('album', album1);
+                assert.deepEqual(body, {
+                    title: album1.title,
+                    description: album1.description
+                });
             });
     });
 
